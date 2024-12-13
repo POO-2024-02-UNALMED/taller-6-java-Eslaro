@@ -21,61 +21,8 @@ public class Vehiculo {
 		this.traccion = traccion;
 		this.fabricante = fabricante;
 		listaDeVehiculos.add(this);
-		CantidadVehiculos++;
-		
+		CantidadVehiculos++;	
 	}
-	  public static String paisMasVendedor() {
-	        ArrayList<String> paises = new ArrayList<>();
-	        ArrayList<Integer> ventasPorPais = new ArrayList<>();
-	        for (Vehiculo v : listaDeVehiculos) {
-	            String pais = v.getFabricante().getPais().getNombre();
-	            int index = paises.indexOf(pais);
-
-	            if (index == -1) {
-	                paises.add(pais);
-	                ventasPorPais.add(1);
-	            } else {
-	                ventasPorPais.set(index, ventasPorPais.get(index) + 1);
-	            }
-	        }
-	        int maxVentas = 0;
-	        String paisMax = "";
-	        for (int i = 0; i < paises.size(); i++) {
-	            if (ventasPorPais.get(i) > maxVentas) {
-	                maxVentas = ventasPorPais.get(i);
-	                paisMax = paises.get(i);
-	            }
-	        }
-
-	        return paisMax;
-	    }
-	  public static String fabricaMayorVentas() {
-	        ArrayList<String> fabricantes = new ArrayList<>();
-	        ArrayList<Integer> ventasPorFabrica = new ArrayList<>();
-
-	        for (Vehiculo v : listaDeVehiculos) {
-	            String fabricante = v.getFabricante().getNombre();
-	            int index = fabricantes.indexOf(fabricante);
-
-	            if (index == -1) {
-	                fabricantes.add(fabricante);
-	                ventasPorFabrica.add(1);
-	            } else {
-	                ventasPorFabrica.set(index, ventasPorFabrica.get(index) + 1);
-	            }
-	        }
-
-	        int maxVentas = 0;
-	        String fabricaMax = "";
-	        for (int i = 0; i < fabricantes.size(); i++) {
-	            if (ventasPorFabrica.get(i) > maxVentas) {
-	                maxVentas = ventasPorFabrica.get(i);
-	                fabricaMax = fabricantes.get(i);
-	            }
-	        }
-
-	        return fabricaMax;
-	    }
 	public String vehiculosPorTipo() {
 		 return "Automoviles: " + Automovil.getCantidadVehiculos() + 
 	               "\nCamionetas: " + Camioneta.getCantidadVehiculos() + 
@@ -134,5 +81,8 @@ public class Vehiculo {
 	}
 	public static int getCantidadVehiculos() {
 		return CantidadVehiculos;
+	}
+	public void setCantidadVehiculos(int vehiculos) {
+		CantidadVehiculos = vehiculos;
 	}
 }
