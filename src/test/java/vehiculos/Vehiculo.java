@@ -82,7 +82,7 @@ public class Vehiculo {
 	public static int getCantidadVehiculos() {
 		return CantidadVehiculos;
 	}
-	public void setCantidadVehiculos(int vehiculos) {
+	public static void setCantidadVehiculos(int vehiculos) {
 		CantidadVehiculos = vehiculos;
 	}
 }
