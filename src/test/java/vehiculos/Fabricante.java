@@ -3,23 +3,27 @@ import java.util.*;
 
 public class Fabricante {
     private String nombre;
-    private Pais pais;  
-    private int ventas; 
+    private Pais pais;
+    private int ventas;
 
+  
     private static List<Fabricante> fabricantes = new ArrayList<>();
 
     public Fabricante(String nombre, Pais pais) {
         this.nombre = nombre;
         this.pais = pais;
-        this.ventas = 0;  
+        this.ventas = 0;
         fabricantes.add(this);  
     }
-
     public void agregarVentas(int cantidad) {
         this.ventas += cantidad;
     }
 
     public static Fabricante fabricaMayorVentas() {
+        if (fabricantes.isEmpty()) {
+            return null; 
+        }
+
         Fabricante fabricanteMayorVentas = null;
         int maxVentas = 0;
 
@@ -29,7 +33,6 @@ public class Fabricante {
                 fabricanteMayorVentas = fabricante;
             }
         }
-
         return fabricanteMayorVentas;
     }
 
@@ -43,9 +46,5 @@ public class Fabricante {
 
     public Pais getPais() {
         return pais;
-    }
-
-    public void setVentas(int ventas) {
-        this.ventas = ventas;
     }
 }

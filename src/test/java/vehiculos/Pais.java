@@ -3,14 +3,15 @@ import java.util.*;
 
 public class Pais {
     private String nombre;
-    private int ventas;  
+    private int ventas;
 
     private static List<Pais> paises = new ArrayList<>();
 
+    // Constructor
     public Pais(String nombre) {
         this.nombre = nombre;
-        this.ventas = 0;  
-        paises.add(this);  
+        this.ventas = 0;
+        paises.add(this); 
     }
 
     public void agregarVentas(int cantidad) {
@@ -18,6 +19,10 @@ public class Pais {
     }
 
     public static Pais paisMasVendedor() {
+        if (paises.isEmpty()) {
+            return null; 
+        }
+
         Pais paisMasVendedor = null;
         int maxVentas = 0;
 
@@ -27,20 +32,14 @@ public class Pais {
                 paisMasVendedor = pais;
             }
         }
-
         return paisMasVendedor;
     }
 
-   
     public String getNombre() {
         return nombre;
     }
 
     public int getVentas() {
         return ventas;
-    }
-
-    public void setVentas(int ventas) {
-        this.ventas = ventas;
     }
 }
