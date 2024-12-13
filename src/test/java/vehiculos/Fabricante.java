@@ -6,15 +6,15 @@ public class Fabricante {
     private Pais pais;
     private int ventas;
 
-  
     private static List<Fabricante> fabricantes = new ArrayList<>();
 
     public Fabricante(String nombre, Pais pais) {
         this.nombre = nombre;
         this.pais = pais;
-        this.ventas = 0;
+        this.ventas = 0; 
         fabricantes.add(this);  
     }
+
     public void agregarVentas(int cantidad) {
         this.ventas += cantidad;
     }
@@ -27,6 +27,7 @@ public class Fabricante {
         Fabricante fabricanteMayorVentas = null;
         int maxVentas = 0;
 
+   
         for (Fabricante fabricante : fabricantes) {
             if (fabricante.getVentas() > maxVentas) {
                 maxVentas = fabricante.getVentas();

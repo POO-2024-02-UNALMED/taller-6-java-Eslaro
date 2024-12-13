@@ -7,11 +7,10 @@ public class Pais {
 
     private static List<Pais> paises = new ArrayList<>();
 
-    // Constructor
     public Pais(String nombre) {
         this.nombre = nombre;
-        this.ventas = 0;
-        paises.add(this); 
+        this.ventas = 0; 
+        paises.add(this);  
     }
 
     public void agregarVentas(int cantidad) {
