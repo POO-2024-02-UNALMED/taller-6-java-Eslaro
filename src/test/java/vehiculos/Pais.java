@@ -15,9 +15,10 @@ public class Pais {
     }
 
     public static Pais paisMasVendedor() {
-        int maxVentas = 0;
         Pais paisMasVendido = null;
+        int maxVentas = 0;
 
+        // Iterar por cada país
         for (Pais pais : paises) {
             int ventasPais = 0;
 
@@ -27,6 +28,7 @@ public class Pais {
                 }
             }
 
+            // Actualizar país con más ventas
             if (ventasPais > maxVentas) {
                 maxVentas = ventasPais;
                 paisMasVendido = pais;

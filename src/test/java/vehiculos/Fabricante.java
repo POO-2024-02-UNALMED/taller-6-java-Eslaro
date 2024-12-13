@@ -34,13 +34,14 @@ public class Fabricante {
         return cantidadVehiculosVendidos;
     }
 
-    // Método para encontrar la fábrica con más ventas
+    // Método estático para encontrar la fábrica con más ventas
     public static Fabricante fabricaMayorVentas() {
-        int maxVentas = 0;
         Fabricante fabricaMasVendedora = null;
+        int maxVentas = 0;
 
         // Iterar por cada fabricante
         for (Fabricante fabricante : fabricantes) {
+            // Encontrar el fabricante con más ventas
             if (fabricante.getCantidadVehiculosVendidos() > maxVentas) {
                 maxVentas = fabricante.getCantidadVehiculosVendidos();
                 fabricaMasVendedora = fabricante;
