@@ -9,8 +9,7 @@ public class Vehiculo {
 	protected int peso;
 	protected String traccion;
 	protected Fabricante fabricante;
-	protected static int CantidadVehiculos;
-	 protected static ArrayList<Vehiculo> listaDeVehiculos = new ArrayList<>();
+	protected static int CantidadVehiculos = 0;
 	 public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, int precio, int peso, String traccion, Fabricante fabricante){
 		this.placa = placa;
 		this.puertas = puertas;
@@ -20,8 +19,8 @@ public class Vehiculo {
 		this.peso = peso;
 		this.traccion = traccion;
 		this.fabricante = fabricante;
-		listaDeVehiculos.add(this);
 		CantidadVehiculos++;	
+		fabricante.incrementarVentas();
 	}
 	public String vehiculosPorTipo() {
 		 return "Automoviles: " + Automovil.getCantidadVehiculos() + 

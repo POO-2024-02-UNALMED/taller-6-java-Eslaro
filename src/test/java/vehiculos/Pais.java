@@ -1,20 +1,14 @@
 package vehiculos;
-import java.util.*;
+import java.util.ArrayList;
 
 public class Pais {
     private String nombre;
-    private int ventas;
 
-    private static List<Pais> paises = new ArrayList<>();
+    private static ArrayList<Pais> paises = new ArrayList<>();
 
     public Pais(String nombre) {
         this.nombre = nombre;
-        this.ventas = 0; 
-        paises.add(this);  
-    }
-
-    public void agregarVentas(int cantidad) {
-        this.ventas += cantidad;
+        paises.add(this); 
     }
 
     public static Pais paisMasVendedor() {
@@ -26,19 +20,24 @@ public class Pais {
         int maxVentas = 0;
 
         for (Pais pais : paises) {
-            if (pais.getVentas() > maxVentas) {
-                maxVentas = pais.getVentas();
+            int ventasPorPais = 0;
+
+            for (Fabricante fabricante : Fabricante.getFabricantes()) {
+                if (fabricante.getPais().equals(pais)) {
+                    ventasPorPais += fabricante.getCantidadVehiculosVendidos();
+                }
+            }
+
+            if (ventasPorPais > maxVentas) {
+                maxVentas = ventasPorPais;
                 paisMasVendedor = pais;
             }
         }
+
         return paisMasVendedor;
     }
 
     public String getNombre() {
         return nombre;
-    }
-
-    public int getVentas() {
-        return ventas;
     }
 }
